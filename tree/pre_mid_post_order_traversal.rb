@@ -16,6 +16,15 @@ n = Node.new(1, nil, Node.new(2, nil, Node.new(4), Node.new(5, nil, Node.new(8),
 # pre 124589367
 # post 489526731
 # mid 428591637
+
+#                      5
+#                    /    \
+#                  3       7
+#                /   \    /   \
+#              2      4 6     8
+#pre 5324768
+n2 = Node.new(5, nil,Node.new(3, nil, Node.new(2), Node.new(4)), Node.new(7, nil, Node.new(6), Node.new(8)))
+
 def preorder(node)
 	if !node
 		return
@@ -50,4 +59,7 @@ postorder(n)
 print "\n"
 
 midorder(n)
+print "\n"
+
+preorder(n2)
 print "\n"
