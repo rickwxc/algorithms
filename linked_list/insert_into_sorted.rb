@@ -1,10 +1,7 @@
 #https://www.geeksforgeeks.org/given-a-linked-list-which-is-sorted-how-will-you-insert-in-sorted-way/
 
 
-
 require '../node'
-
-
 n = N.new(2, N.new(4, N.new(6,N.new(8,N.new(10)))))
 
 
