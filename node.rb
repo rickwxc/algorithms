@@ -171,11 +171,13 @@ class WeightedGraph
 		picked_edges = []
 
 		while picked_edges.size < (@v.size - 1)
-			e = edges.shift
-			p e
-			return
+			picked_edges << edges.shift
+			if self.has_cycle(picked_edges)
+				picked_edges.pop
+			end
 		end
 
+		picked_edges
 	end
 
 	def find_parent(parent, v)
@@ -194,13 +196,15 @@ class WeightedGraph
 		end
 	end
 
-	def has_cycle
+	def has_cycle(edges = nil)
+		edges ||= @edges
+
 		parent = {} 
 		@v.each do |e|
 			parent[e] = -1
 		end
 
-		@edges.each do |e|
+		edges.each do |e|
 			if self.find_parent(parent, e[0]) == self.find_parent(parent, e[1]) 
 				return true
 			end
