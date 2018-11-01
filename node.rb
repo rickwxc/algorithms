@@ -196,6 +196,49 @@ class WeightedGraph
 		end
 	end
 
+	def find_parent_with_rank(parents, v)
+		 if parents[v][:parent] == -1
+			 return v
+		 end
+
+		 return find_parent_with_rank(parents, parents[v][:parent])
+	end
+
+	def union_with_rank(parents, x, y)
+		setx = self.find_parent_with_rank(parents, x)
+		sety = self.find_parent_with_rank(parents, y)
+		if parents[setx][:rank] == parents[sety][:rank]
+			 parents[setx][:parent] = sety 
+			 parents[sety][:rank] =  1 + parents[sety][:rank] 
+		elsif parents[setx][:rank] > parents[sety][:rank]
+			 parents[sety][:parent] = setx 
+		else
+			 parents[setx][:parent] = sety 
+		end
+	end
+
+	def has_cycle_with_rank(edges = nil)
+		edges ||= @edges
+
+		parents = {} 
+		@v.each do |e|
+			parents[e] = {
+				:parent => -1,
+				:rank => -1,
+			}
+		end
+
+		edges.each do |e|
+			if self.find_parent_with_rank(parents, e[0]) == self.find_parent_with_rank(parents, e[1]) 
+				return true
+			end
+			self.union_with_rank(parents, e[0], e[1])
+		end
+
+		return false
+	end
+
+
 	def has_cycle(edges = nil)
 		edges ||= @edges
 
