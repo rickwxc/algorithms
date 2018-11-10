@@ -61,15 +61,25 @@ end
 
 
 class Graph
+	attr_reader :edges
+	attr_reader :v
+	attr_reader :vertics
 
 	def initialize(v)
 		@v = v
 		@edges = {}
+		@vertics = []
 	end
 
 	def add_edge(v, w)
 		@edges[v] ||= []
 		@edges[v] << w
+		if !(@vertics.include? v)
+			@vertics << v
+		end
+		if !(@vertics.include? w)
+			@vertics << w
+		end
 	end
 
 	def dfs(start, visited)
@@ -346,3 +356,4 @@ class WeightedGraph
 	end
 
 end
+
