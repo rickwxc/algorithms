@@ -1,7 +1,7 @@
 #https://www.geeksforgeeks.org/articulation-points-or-cut-vertices-in-a-graph/
-require '../undirect_graph'
+require '../include'
 
-def ap(u, arg_edges, visited, disc, low, parent, ap) 
+def artp(u, arg_edges, visited, disc, low, parent, ap) 
 
 	visited << u
 	disc['nodes'][u] = disc['val']
@@ -13,7 +13,7 @@ def ap(u, arg_edges, visited, disc, low, parent, ap)
 		if !(visited.include? v)
 			parent[v] = u
 			children = children + 1
-			ap(v, arg_edges, visited, disc, low, parent, ap) 
+			artp(v, arg_edges, visited, disc, low, parent, ap) 
 			low[u] = [low[u], low[v]].min
 
 			# (1) u is root of DFS tree and has two or more chilren. 
@@ -49,9 +49,9 @@ def run(n, arg_edges)
 	visited = []
 	low = {}
 	parent = {}
-	ap = []
+	ap = {}
 
-	ap(n, arg_edges, visited, disc, low, parent, ap) 
+	artp(n, arg_edges, visited, disc, low, parent, ap) 
 
 	p low
 	p ap
