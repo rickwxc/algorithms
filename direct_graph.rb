@@ -11,6 +11,7 @@ class DirectGraph < UndirectGraph
 
 	def add_edge(v, w)
 		@edges[v] ||= []
+		@edges[w] ||= []
 		@edges[v] << w
 
 		@reverse_edges[w] ||= []

@@ -8,6 +8,10 @@ class UndirectGraph
 		@edges = {}
 	end
 
+	def addEdge(v, w)
+		self.add_edge v, w
+	end
+
 	def add_edge(v, w)
 		@edges[v] ||= []
 		@edges[v] << w
