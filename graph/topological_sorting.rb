@@ -1,5 +1,5 @@
 #https://www.geeksforgeeks.org/topological-sorting/
-require '../direct_graph'
+require '../include'
 
 #We recommend to first see implementation of DFS here. We can modify DFS to find Topological Sorting of a graph. 
 #In DFS, we start from a vertex, we first print it and then recursively call DFS for its adjacent vertices. 

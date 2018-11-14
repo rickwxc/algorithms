@@ -1,5 +1,5 @@
 #https://www.geeksforgeeks.org/strongly-connected-components/
-require '../direct_graph'
+require '../include'
 
 def dfs(v, edges, mark, stack)
 	mark['nodes'][v] ||= {}

@@ -1,7 +1,7 @@
 #https://www.geeksforgeeks.org/?p=26604/
 #Kruskal’s Minimum Spanning Tree Algorithm | Greedy Algo-2
 
-require '../node'
+require '../include'
 
 
 #          10

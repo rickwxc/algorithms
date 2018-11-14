@@ -1,5 +1,5 @@
 #https://www.geeksforgeeks.org/topological-sorting/
-require '../direct_graph'
+require '../include.rb'
 
 #find all mother vetex: Just print all the vertices in the same strongly connected components in which one of the mother vertex lie.
 

@@ -1,6 +1,3 @@
-
-require '../undirect_graph'
-
 class DirectGraph < UndirectGraph
 	attr_reader :reverse_edges
 

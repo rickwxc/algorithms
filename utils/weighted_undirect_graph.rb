@@ -1,0 +1,3 @@
+class WeightedUndirectGraph < UndirectGraph
+
+end

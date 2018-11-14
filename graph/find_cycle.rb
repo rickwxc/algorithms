@@ -1,5 +1,5 @@
 #https://www.geeksforgeeks.org/union-find/
-require '../node'
+require '../include'
 
 
 wg = WeightedGraph.new
