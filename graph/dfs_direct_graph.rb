@@ -1,4 +1,4 @@
-require '../direct_graph'
+require '../include'
 
 
 def run(n, edges, vertics)
@@ -35,5 +35,3 @@ g0.add_edge(2, 3);
 g0.add_edge(3, 1); 
 
 run(5, g0.edges, g0.vertics)
-
-
