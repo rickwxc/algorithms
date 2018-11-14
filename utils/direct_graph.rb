@@ -1,26 +1,22 @@
+# child of undirect graph
 class DirectGraph < UndirectGraph
-	attr_reader :reverse_edges
+  attr_reader :reverse_edges
 
-	def initialize
-		super
-		@reverse_edges = {}
-	end
+  def initialize
+    super
+    @reverse_edges = {}
+  end
 
-	def add_edge(v, w)
-		@edges[v] ||= []
-		@edges[w] ||= []
-		@edges[v] << w
+  def add_edge(vertex_v, vertex_w)
+    @edges[vertex_v] ||= []
+    @edges[vertex_w] ||= []
+    @edges[vertex_v] << vertex_w
 
-		@reverse_edges[w] ||= []
-		@reverse_edges[w] << v
+    @reverse_edges[vertex_v] ||= []
+    @reverse_edges[vertex_w] ||= []
+    @reverse_edges[vertex_w] << vertex_v
 
-		if !(@vertics.include? v)
-			@vertics << v
-		end
-
-		if !(@vertics.include? w)
-			@vertics << w
-		end
-	end
-
+    add_vertex(vertex_v)
+    add_vertex(vertex_w)
+  end
 end

@@ -1,30 +1,27 @@
+# undirect graph
 class UndirectGraph
-	attr_reader :edges
-	attr_reader :vertics
+  attr_reader :edges
+  attr_reader :vertics
 
-	def initialize()
-		@vertics = []
-		@edges = {}
-	end
+  def initialize
+    @vertics = []
+    @edges = {}
+  end
 
-	def addEdge(v, w)
-		self.add_edge v, w
-	end
+  def add_vertex(vertex_v)
+    @vertics << vertex_v unless @vertics.include? vertex_v
+  end
 
-	def add_edge(v, w)
-		@edges[v] ||= []
-		@edges[v] << w
+  def add_edge(vertex_v, vertex_w)
+    @edges[vertex_v] ||= []
+    @edges[vertex_v] << vertex_w
 
-		@edges[w] ||= []
-		@edges[w] << v
+    @edges[vertex_w] ||= []
+    @edges[vertex_w] << vertex_v
 
-		if !(@vertics.include? v)
-			@vertics << v
-		end
+    add_vertex(vertex_v)
+    add_vertex(vertex_w)
+  end
 
-		if !(@vertics.include? w)
-			@vertics << w
-		end
-	end
-
+  alias addEdge add_edge
 end
