@@ -1,4 +1,3 @@
-
 class UndirectGraph
 	attr_reader :edges
 	attr_reader :vertics
