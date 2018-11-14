@@ -1,5 +1,4 @@
 source "https://rubygems.org"
 
 gem "pry"
-gem 'rubocop', require: false
-
+gem 'rubocop', '~> 0.60.0', require: false
